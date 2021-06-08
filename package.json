@@ -1,0 +1,17 @@
+{
+  "name": "fisheye",
+  "version": "1.0.0",
+  "description": "Site web de photographes freelances",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch ./sass/main.scss:public/css/style.css --style compressed",
+    "prefix": "postcss ./public/css/style.css --use autoprefixer -d public/css/prefixed/"
+  },
+  "author": "Loic Antoniak",
+  "license": "ISC",
+  "browserslist": "last 4 versions",
+  "dependencies": {
+    "sass": "^1.32.8"
+  }
+}
