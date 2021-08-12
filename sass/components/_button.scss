@@ -1,0 +1,33 @@
+.btn {
+  outline: none;
+  cursor: pointer;
+  border-style: none;
+
+  &-primary {
+    @include font-body-large;
+    height: 69px;
+    padding: 23px 18px;
+    border-radius: $border-radius;
+    color: $color-white;
+    background-color: $color-primary;
+    &:hover,
+    &:focus {
+      color: $color-dark-black;
+      background-color: $color-secondary;
+    }
+  }
+
+  &-tag {
+    @include font-body-small;
+    height: 22px;
+    border: 0.5px solid $color-border;
+    border-radius: $border-radius-soft;
+    color: $color-primary;
+    background-color: $color-white;
+    &:hover,
+    &:focus {
+      color: $color-white;
+      background-color: $color-primary;
+    }
+  }
+}

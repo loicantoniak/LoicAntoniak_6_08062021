@@ -9,3 +9,34 @@
     @content;
   }
 }
+
+@mixin font-heading-1 {
+  font-weight: 400;
+  font-size: $base-fontSize * 2;
+  line-height: 46.87px;
+  margin: 0;
+}
+
+@mixin font-body-large {
+  font-weight: 700;
+  font-size: $base-fontSize;
+  line-height: 23, 44px;
+}
+
+@mixin font-body {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16.93px;
+}
+
+@mixin font-body-small {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15, 62px;
+}
+
+@mixin font-body-extra-small {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 13.02px;
+}

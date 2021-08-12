@@ -6,6 +6,22 @@ body {
   font-family: "DM Sans", sans-serif;
 }
 
+body {
+  margin: 43px 20px;
+  @include breakpoint(desktop) {
+    margin: 43px 100px;
+  }
+}
+
 * {
   box-sizing: border-box;
+}
+
+a {
+  margin: 0;
+  text-decoration: none;
+}
+
+p {
+  margin: 0.2rem 0;
 }

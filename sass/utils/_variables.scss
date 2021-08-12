@@ -2,12 +2,25 @@
 /*             VARIABLES             */
 /*************************************/
 
+$base-fontSize: 18px;
+
+$color-primary: #901c1c;
+$color-secondary: #d3573c;
+
+$color-dark-black: #000000;
+$color-dark-grey1: #525252;
+$color-dark-grey2: #fafafa;
+$color-dark-grey3: #757575;
 $color-white: #fff;
+
+$color-border: #c4c4c4;
 
 $breakpoints: (
   tablet: 768px,
   desktop: 992px,
-  largeScreen:1200px,
+  largeScreen: 1200px,
 );
 
-
+$border-radius: 5px;
+$border-radius-soft: 11px;
+$border-radius-extraSoft: 50%;
