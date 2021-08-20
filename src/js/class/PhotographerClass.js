@@ -50,7 +50,7 @@ export class Photographer {
     <div class="photographer_tags">`;
 
     this.tags.forEach((tag) => {
-      html += `<button class="btn btn-tag" data-filter=${tag}>#${tag}</button>`;
+      html += `<button class="btn btn-tag " data-filter=${tag}>#${tag}</button>`;
     });
 
     html += `</div>

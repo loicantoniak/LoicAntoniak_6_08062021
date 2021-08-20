@@ -30,7 +30,7 @@ export const FilterTagsNavList = (data) => {
  */
 const getUniqueTagArr = (data) => {
   let tags = [];
-  data.photographers.forEach((photographer) => tags.push(...photographer.tags));
+  data.forEach((photographer) => tags.push(...photographer.tags));
   const uniqueTags = new Set(tags);
   return [...uniqueTags];
 };
@@ -73,7 +73,7 @@ export const filteringPhotographersByTags = (data) => {
  * @param {object} data 
  */
 const displayPhotographer = (elt, data) => {
-  data.photographers.forEach((photographer, index) => {
+  data.forEach((photographer, index) => {
     if (photographer.tags.includes(elt.dataset.filter)) {
       profilContainer[index].classList.remove("hide");
     } else {
@@ -96,4 +96,3 @@ const updatedSelectedTag = (elt) => {
     }
   }
 };
-

@@ -1,0 +1,26 @@
+form {
+  .formData {
+    margin-top: 0.5rem;
+  }
+  label {
+    @include font-heading-3;
+    opacity: 0.8;
+  }
+  input:not([type="submit"]),
+  textarea {
+    outline: none;
+    border-radius: $border-radius;
+    border: none;
+    width: 100%;
+    @include font-heading-3;
+  }
+  .text-control {
+    height: 50px;
+  }
+
+  .btn-submit {
+    margin-top: 0.5rem;
+    padding: 16px 18px;
+    font-size: 15px
+  }
+}

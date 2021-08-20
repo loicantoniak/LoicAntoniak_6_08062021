@@ -1,7 +1,7 @@
 "use strict";
 
 import { fetchData } from "./fetchData.js";
-import { Photographer } from "./class/Photographer.js";
+import { Photographer } from "./class/PhotographerClass.js";
 import { FilterTagsNavList, filteringPhotographersByTags } from "./filterTags.js";
 
 fetchData();
@@ -13,7 +13,7 @@ export const MainPage = (data) => {
 };
 
 const ProfileMainList = (data) => {
-  data.photographers.forEach((photographer) => {
+  data.forEach((photographer) => {
     new Photographer(
       photographer.id,
       photographer.name,

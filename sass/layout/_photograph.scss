@@ -24,7 +24,7 @@
 
     @include breakpoint(tablet) {
       @include font-heading-1;
-      font-size: 36px
+      font-size: 36px;
     }
     @include breakpoint(desktop) {
       @include font-heading-1;
@@ -45,6 +45,14 @@
   &tags {
     @include breakpoint(tablet) {
       margin-top: 1.2rem;
+      .btn-tag {
+        cursor: default;
+        &:hover,
+        &:focus {
+          color: $color-primary;
+          background-color: $color-white;
+        }
+      }
     }
   }
   &tagline {

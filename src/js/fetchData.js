@@ -10,7 +10,7 @@ export const fetchData = async function () {
     if (window.location.pathname.includes("photographer.html")) {
       PhotographerPage(data);
     } else {
-      MainPage(data);
+      MainPage(data.photographers);
     }
   } catch (err) {
     console.error(err);
