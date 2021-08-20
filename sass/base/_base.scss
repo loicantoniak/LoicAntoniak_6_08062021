@@ -1,15 +1,14 @@
 html,
 body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+  margin: auto;
+  max-width: 1700px;
   font-family: "DM Sans", sans-serif;
 }
 
 body {
-  margin: 43px 20px;
-  @include breakpoint(desktop) {
-    margin: 43px 100px;
+  padding: 43px 20px;
+  @include breakpoint(tablet) {
+    padding: 43px 100px;
   }
 }
 

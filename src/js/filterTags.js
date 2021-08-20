@@ -11,7 +11,7 @@ const profilContainer = document.getElementsByClassName("profile__container");
  * Create DOM elements for the navigation list
  * @param {object} data
  */
-export const createFilterTagsNavList = (data) => {
+export const FilterTagsNavList = (data) => {
   let html = "";
 
   sortedTags(data).forEach((tag) => {
@@ -63,7 +63,6 @@ export const filteringPhotographersByTags = (data) => {
 
       displayPhotographer(e.target, data);
       updatedSelectedTag(e.target);
-      renderAllPhotographers(e.target, data)
     });
   }
 };

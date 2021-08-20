@@ -12,15 +12,29 @@
 
 @mixin font-heading-1 {
   font-weight: 400;
+  font-size: 64px;
+  line-height: 83.33px;
+  margin: 0;
+}
+
+@mixin font-heading-2 {
+  font-weight: 400;
   font-size: $base-fontSize * 2;
   line-height: 46.87px;
+  margin: 0;
+}
+
+@mixin font-heading-3 {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 31.25px;
   margin: 0;
 }
 
 @mixin font-body-large {
   font-weight: 700;
   font-size: $base-fontSize;
-  line-height: 23, 44px;
+  line-height: 23,44px;
 }
 
 @mixin font-body {
