@@ -1,4 +1,4 @@
-export default function ModalForm(data) {
+export default function modalForm(data) {
   /**
    * DOM Elements
    */

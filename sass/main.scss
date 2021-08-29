@@ -12,12 +12,16 @@
 // Components
 @import "./components/button";
 @import "./components/portrait";
+@import "./components/mediaCard";
+@import "./components/counter";
+@import "./components/dropdown";
 
 // Layout
 @import "./layout/profile";
 @import "./layout/photograph";
 @import "./layout/modal";
 @import "./layout/form";
+@import "./layout/media";
 
 // Pages
 @import "./pages/home";

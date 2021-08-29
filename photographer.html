@@ -8,7 +8,7 @@
       name="description"
       content="FishEye, site web de photographes freelances"
     />
-    <title>FishEye - page photographer</title>
+    <title>Fish Eye - Accueil</title>
     <link rel="stylesheet" href="/src/css/style.css" />
     <link
       rel="stylesheet"
@@ -78,6 +78,23 @@
           </div>
         </div>
       </div>
+
+      <div class="dropdown">
+        <label for="dropdown">Trier par</label>
+        <div class="custom-select">
+          <button class="custom-select__trigger" id="dropdown"><span>Popularité</span>
+            <div class="arrow"></div>
+          </button>
+          <div class="custom-options">
+            <button class="custom-option selected custom-hidden" data-value="popularity" data-action='sortMedia'><span>Popularité</span></button>
+            <button class="custom-option" data-value="date" data-action='sortMedia'><span>Date</span></button>
+            <button class="custom-option" data-value="title" data-action='sortMedia'><span>Titre</span></button>
+          </div>
+        </div>
+      </div>
+
+      <ul class="photographer_mediaList"></ul>
+      <aside></aside>
     </main>
   </body>
 

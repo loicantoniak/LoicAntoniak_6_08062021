@@ -2,17 +2,17 @@
 
 import { fetchData } from "./fetchData.js";
 import { Photographer } from "./class/PhotographerClass.js";
-import { FilterTagsNavList, filteringPhotographersByTags } from "./filterTags.js";
+import { filterTagsNavList, filteringPhotographersByTags } from "./filterTags.js";
 
 fetchData();
 
-export const MainPage = (data) => {
-  ProfileMainList(data);
-  FilterTagsNavList(data);
+export const mainPage = (data) => {
+  profileMainList(data);
+  filterTagsNavList(data);
   filteringPhotographersByTags(data);
 };
 
-const ProfileMainList = (data) => {
+const profileMainList = (data) => {
   data.forEach((photographer) => {
     new Photographer(
       photographer.id,

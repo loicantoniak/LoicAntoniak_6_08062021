@@ -1,0 +1,99 @@
+.dropdown {
+  display: flex;
+  align-items: center;
+  margin: 2rem 0;
+
+  label {
+    @include font-body-large;
+    margin-right: 2rem;
+  }
+
+  button {
+    @include font-body-large;
+    background-color: $color-primary;
+    border: none;
+    color: white;
+    padding: 15px;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+
+  .open {
+    .custom-select__trigger {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    .arrow:after {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+      content: "\f077";
+    }
+
+    .custom-options {
+      opacity: 1;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+
+  .custom-select {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: $color-primary;
+    width: 170px;
+    border-radius: $border-radius;
+    &__trigger {
+      border-radius: $border-radius;
+    }
+  }
+
+  .custom-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transition: all 0.5s;
+    z-index: 2;
+    background-color: $color-primary;
+    border-radius: $border-radius;
+  }
+
+  .custom-option {
+    position: relative;
+    cursor: pointer;
+    transition: all 0.5s;
+    border-top: 1px solid white;
+    width: 150px;
+    margin: auto;
+    text-align: left;
+    padding-left: 7px;
+  }
+  .custom-option:hover {
+    cursor: pointer;
+  }
+  .custom-option.selected {
+    color: #ffffff;
+  }
+
+  .arrow:after {
+    position: relative;
+    height: 15px;
+    width: 15px;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: "\f078";
+    height: 16px;
+    width: 16px;
+    color: white;
+  }
+
+  .custom-hidden {
+    display: none;
+  }
+}

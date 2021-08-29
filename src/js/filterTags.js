@@ -1,17 +1,22 @@
 import { upperCaseFirst } from "./functions.js";
 
+const urlParam = new URLSearchParams(window.location.search);
+
 /**
  * DOM Elements
  */
 const tagsList = document.querySelector(".tags-list");
 const filterTags = document.getElementsByClassName("btn-tag");
 const profilContainer = document.getElementsByClassName("profile__container");
+const mediaContainer = document.getElementsByClassName(
+  "photographer_mediaCard"
+);
 
 /**
  * Create DOM elements for the navigation list
  * @param {object} data
  */
-export const FilterTagsNavList = (data) => {
+export const filterTagsNavList = (data) => {
   let html = "";
 
   sortedTags(data).forEach((tag) => {
@@ -47,7 +52,7 @@ const sortedTags = (data) => {
 };
 
 /**
- * Filtering photographer by tags 
+ * Filtering photographer by tags
  * @param {object} data
  */
 export const filteringPhotographersByTags = (data) => {
@@ -67,10 +72,48 @@ export const filteringPhotographersByTags = (data) => {
   }
 };
 
+export const filteringMediaByTags = (media) => {
+  for (let tag of filterTags) {
+    tag.addEventListener("click", (e) => {
+      const activeTag = document.querySelector(".btn-tag--active");
+
+      if (activeTag) {
+        activeTag.classList.remove("btn-tag--active");
+      }
+
+      e.target.classList.add("btn-tag--active");
+
+      displayMedia(e.target, media);
+    });
+  }
+};
+
+/**
+ * compare data attribute filter in tags of each media and show or hide media
+ * @param {DOM element} elt
+ * @param {object} data
+ */
+export const displayMedia = (elt, media) => {
+  console.log(elt)
+  media.forEach((media, index) => {
+    if(elt.dataset.filter !== "all") {
+      if (media.tags.includes(elt.dataset.filter)) {
+        mediaContainer[index].classList.remove("hide");
+      } else {
+        mediaContainer[index].classList.add("hide");
+      }
+    }
+    else {
+      mediaContainer[index].classList.remove("hide");
+    }
+   
+  });
+};
+
 /**
  * compare data attribute filter in tags of each photographer and show or hide photographer
- * @param {DOM element} elt 
- * @param {object} data 
+ * @param {DOM element} elt
+ * @param {object} data
  */
 const displayPhotographer = (elt, data) => {
   data.forEach((photographer, index) => {
@@ -84,7 +127,7 @@ const displayPhotographer = (elt, data) => {
 
 /**
  * Update style of selectedTag
- * @param {DOM element} elt 
+ * @param {DOM element} elt
  */
 const updatedSelectedTag = (elt) => {
   const tags = document.querySelectorAll(".btn-tag");

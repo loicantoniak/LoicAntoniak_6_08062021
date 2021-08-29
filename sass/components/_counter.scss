@@ -1,0 +1,25 @@
+aside {
+  display: none;
+  @include breakpoint(desktop) {
+    display: block;
+    position: fixed;
+    bottom: -3px;
+    right: 3rem;
+    width: 348px;
+    height: 80px;
+    border-radius: 5px;
+    background-color: $color-tertiary;
+    padding: 25px 40px;
+    @include font-heading-3;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .counter-container {
+      display: flex;
+      align-items: center;
+      i {
+          margin-left: 1rem;
+      }
+    }
+  }
+}

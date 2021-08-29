@@ -1,0 +1,14 @@
+.photographer_mediaList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 335px);
+  justify-content: center;
+  grid-auto-rows: 240px;
+  grid-gap: 1rem;
+  @include breakpoint(desktop) {
+    grid-template-columns: repeat(auto-fit, 350px);
+    grid-auto-rows: 320px;
+    justify-content: space-between;
+    grid-gap: 4rem;
+    margin-bottom: 4rem;
+  }
+}

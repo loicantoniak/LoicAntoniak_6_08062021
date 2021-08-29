@@ -10,6 +10,9 @@ export class Photographer {
     this.price = price;
   }
 
+  /**
+   * Create profile's Dom elements on the homepage
+   */
   setProfileDomElements = () => {
     const profileListContainer = document.querySelector(".profile-list");
 
@@ -35,6 +38,9 @@ export class Photographer {
     profileListContainer.insertAdjacentHTML("beforeend", html);
   };
 
+  /**
+   * Create photographer"s header dom elements on the photographer page
+   */
   setPhotographerHeaderDomElements = () => {
     const photographerHeaderContainer = document.querySelector(
       ".photographer_header"
@@ -62,4 +68,5 @@ export class Photographer {
 
     photographerHeaderContainer.insertAdjacentHTML("beforeend", html);
   };
+
 }
