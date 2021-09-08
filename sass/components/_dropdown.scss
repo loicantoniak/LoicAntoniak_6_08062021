@@ -1,7 +1,10 @@
 .dropdown {
-  display: flex;
-  align-items: center;
-  margin: 2rem 0;
+  display: none;
+  @include breakpoint(tablet) {
+    display: flex;
+    align-items: center;
+    margin: 2rem 0;
+  }
 
   label {
     @include font-body-large;

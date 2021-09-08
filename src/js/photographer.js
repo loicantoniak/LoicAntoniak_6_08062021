@@ -4,6 +4,7 @@ import { filteringMediaByTags, displayMedia } from "./filterTags.js";
 import { likesCounterDomElements, likesMedia } from "./likes.js";
 import modalForm from "./modalForm.js";
 import { sortMedia } from "./sort.js";
+import {carouselMedia} from "./carousel.js"
 
 export const urlParam = new URLSearchParams(window.location.search);
 
@@ -73,4 +74,5 @@ export const updatePhotographerPage = (photographer, medias) => {
   photographerMediaList(photographer, medias);
   selectedTag && displayMedia(selectedTag, medias);
   likesMedia();
+  carouselMedia(photographer, medias)
 };

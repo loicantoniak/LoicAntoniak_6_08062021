@@ -11,34 +11,43 @@
     width: 100%;
     height: 190px;
     border-radius: $border-radius;
+    cursor: pointer;
   }
   figcaption {
     display: flex;
     justify-content: space-between;
     align-items: center;
     h3 {
-      @include font-heading-3;
+      @include font-body;
       color: $color-primary;
+      @include breakpoint(tablet) {
+        @include font-heading-3;
+      }
     }
   }
   &-like {
     display: flex;
     align-items: center;
     p {
-      @include font-heading-3;
+      @include font-body;
       color: $color-primary;
       margin-right: 0.5rem;
-      font-weight: 500;
-      font-size: 20px;
+      @include breakpoint(tablet) {
+        @include font-heading-3;
+        margin-right: 0.5rem;
+      }
     }
     i {
-        cursor: pointer;
-        color: $color-primary;
+      cursor: pointer;
+      color: $color-primary;
+      font-size: 0.8rem;
+      @include breakpoint(tablet) {
         font-size: 1.4rem;
+      }
     }
   }
 
-  @include breakpoint(desktop) { 
+  @include breakpoint(desktop) {
     figure {
       width: 350px;
     }

@@ -16,14 +16,15 @@
     />
   </head>
   <body>
-    <header>
+    <header role="banner">
       <a class="logo" href="./index.html">
-        <img src="/src/assets/Icons/fishEye_log.svg" alt="Fisheye Home page" />
+        <img src="/src/assets/Icons/fishEye_log.svg" alt="Fisheye Home page" aria-label="Fisheye Home page" aria-current="page" />
       </a>
     </header>
 
-    <main class="photographer_content">
+    <main class="photographer_content" role="main">
       <header class="photographer_header"></header>
+
       <div class="modal_form">
         <div class="modal_form-content">
             <img class="modal_form-close" src="/src/assets/Icons/close-form.svg" alt="close-form" />
@@ -94,10 +95,22 @@
       </div>
 
       <ul class="photographer_mediaList"></ul>
+      
       <aside></aside>
+
+      <div class="photographer_lightbox">
+        <div class="photographer_carousel">
+          <button class="photographer_carousel_btn photographer_carousel_btn--close">
+            <img src="/src/assets/Icons/close-carousel.svg" alt="close-carousel" /> 
+          </button>
+          
+        </div>
+      </div>
     </main>
   </body>
 
   <!-- Script Javascript -->
   <script type="module" src="./src/js/index.js"></script>
 </html>
+
+

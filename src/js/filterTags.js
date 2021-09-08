@@ -1,7 +1,5 @@
 import { upperCaseFirst } from "./functions.js";
 
-const urlParam = new URLSearchParams(window.location.search);
-
 /**
  * DOM Elements
  */
@@ -20,7 +18,7 @@ export const filterTagsNavList = (data) => {
   let html = "";
 
   sortedTags(data).forEach((tag) => {
-    html += `<button class="btn btn-tag" data-filter=${tag}>#${upperCaseFirst(
+    html += `<button class="btn btn-tag" data-filter=${tag} aria-label="tag">#${upperCaseFirst(
       tag
     )}</button>`;
   });
@@ -94,7 +92,6 @@ export const filteringMediaByTags = (media) => {
  * @param {object} data
  */
 export const displayMedia = (elt, media) => {
-  console.log(elt)
   media.forEach((media, index) => {
     if(elt.dataset.filter !== "all") {
       if (media.tags.includes(elt.dataset.filter)) {

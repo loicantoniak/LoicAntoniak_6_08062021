@@ -84,6 +84,8 @@ export class Image extends MediasFatory {
       `/src/assets/medias/${firstName(this.photographerName)}/${this.src}`
     );
     image.setAttribute("alt", `${this.title}, closeup view`);
+    image.setAttribute("data-id", `${this.id}`);
+    image.setAttribute("role", "button");
     this.setMediaListDomElements(image);
   }
 }
@@ -97,7 +99,8 @@ export class Video extends MediasFatory {
       `/src/assets/medias/${firstName(this.photographerName)}/${this.src}`
     );
     video.setAttribute("alt", `${this.title}, closeup view`);
-    video.setAttribute("controls", true);
+    video.setAttribute("data-id", `${this.id}`);
+    video.setAttribute("role", "button");
     this.setMediaListDomElements(video);
   }
 }

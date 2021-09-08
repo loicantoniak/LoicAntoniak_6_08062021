@@ -7,6 +7,11 @@ const customSelect = document.querySelector(".custom-select");
 const customOptions = document.querySelector(".custom-options");
 const options = document.querySelectorAll(".custom-option");
 
+/**
+ *
+ * @param {object} photographer
+ * @param {object} medias
+ */
 export const sortMedia = (photographer, medias) => {
   setDropdownDomElement();
 
@@ -14,11 +19,15 @@ export const sortMedia = (photographer, medias) => {
     ".photographer_mediaList"
   );
 
+
+
   customSelect.addEventListener("click", function () {
     const selectedOption = customOptions.querySelector(".selected");
     const value = selectedOption.dataset.value;
     this.classList.toggle("open");
     if (!this.classList.contains("open")) {
+      customOptions.style.display = "none";
+      customSelect.setAttribute("aria-expanded", false)
       switch (value) {
         case "popularity":
           deleteMediaListDomElements(phographerMediaListContainer);
@@ -35,6 +44,9 @@ export const sortMedia = (photographer, medias) => {
           sortingByDate(photographer, medias);
           break;
       }
+    } else {
+      customOptions.style.display = "block";
+      customSelect.setAttribute("aria-expanded", true)
     }
   });
 };
@@ -61,6 +73,9 @@ const setDropdownDomElement = () => {
     });
   }
 
+  customSelect.setAttribute("aria-haspopup", true)
+  customSelect.setAttribute("aria-expanded", false)
+
   window.addEventListener("click", function (e) {
     const select = document.querySelector(".custom-select");
     if (!select.contains(e.target)) {
@@ -70,7 +85,7 @@ const setDropdownDomElement = () => {
 };
 
 /**
- * Remove oldChildren in dom
+ * Remove old children in dom
  * @param element
  */
 const deleteMediaListDomElements = (element) => {
@@ -81,11 +96,21 @@ const deleteMediaListDomElements = (element) => {
   });
 };
 
+/**
+ * Sort by popularity
+ * @param {object} photographer
+ * @param {object} medias
+ */
 export const sortingByPopularity = (photographer, medias) => {
   const mediasByPopularity = medias.sort((a, b) => b.likes - a.likes);
   updatePhotographerPage(photographer, mediasByPopularity);
 };
 
+/**
+ * Sort by title
+ * @param {object} photographer
+ * @param {object} medias
+ */
 export const sortingByTitle = (photographer, medias) => {
   const mediasByTitle = medias.sort((a, b) => {
     return a.title > b.title ? 1 : -1;
@@ -93,6 +118,11 @@ export const sortingByTitle = (photographer, medias) => {
   updatePhotographerPage(photographer, mediasByTitle);
 };
 
+/**
+ * Sort by date
+ * @param {object} photographer
+ * @param {object} medias
+ */
 export const sortingByDate = (photographer, medias) => {
   const mediasByDate = medias.sort(
     (a, b) => new Date(a.date) - new Date(b.date)

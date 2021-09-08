@@ -49,7 +49,7 @@ export class Photographer {
     let html = `<div class="photographer_info">
       <div class="photographer_title">
       <h1 class="photographer_name">${this.name}</h1>
-        <button class="btn btn-primary btn-contact">Contactez-moi</button>
+        <button class="btn btn-primary btn-contact" aria-labeledby="Ouvre le formulaire de contact">Contactez-moi</button>
       </div>
       <h2 class="photographer_location">${this.city}, ${this.country}</h2>
       <p class="photographer_tagline">${this.tagline}</p>

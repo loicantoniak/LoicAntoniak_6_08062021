@@ -1,12 +1,17 @@
 .photographer_ {
   &content {
-    margin-top: 40px;
+    margin-top: 10px;
+    @include breakpoint(tablet) {
+      margin-top: 40px;
+    }
   }
   &header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 2rem;
     @include breakpoint(tablet) {
+      margin-bottom: 0;
       background-color: $color-dark-grey2;
       height: 313px;
       padding: 50px;
@@ -19,7 +24,7 @@
 
   &name {
     @include font-heading-2;
-    font-size: 24px;
+    font-size: 32px;
     color: $color-secondary;
 
     @include breakpoint(tablet) {
@@ -49,7 +54,7 @@
   }
   &tagline {
     @include font-body;
-    columns: $color-dark-grey1;
+    color: $color-dark-grey3;
     @include breakpoint(tablet) {
       @include font-body-large;
       font-weight: 400;
@@ -63,6 +68,7 @@
   left: 50%;
   padding: 0.8rem 1.5rem;
   transform: translate(-50%, 0);
+  z-index: 2;
   @include breakpoint(largeScreen) {
     position: inherit;
     padding: 23px 18px;
