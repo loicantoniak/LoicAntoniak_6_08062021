@@ -13,10 +13,24 @@ export default function modalForm(data) {
   const photographerName = document.querySelector(
     ".modal_form_photographer_name"
   );
+  const body = document.querySelector("body");
+  const header = document.querySelector("header");
+  const main = document.querySelector(".photographer_content");
 
   btnContact.addEventListener("click", openModal);
   btnClose.addEventListener("click", closeModal);
   photographerName.innerHTML = data.name;
+
+  document.addEventListener("keydown", function (e) {
+    const keyCode = e.keyCode;
+
+    if (
+      modalFormContainer.getAttribute("aria-hidden") === "false" &&
+      keyCode === 27
+    ) {
+      closeModal();
+    }
+  });
 
   const error = {
     firstName: {
@@ -40,18 +54,30 @@ export default function modalForm(data) {
   // open modal form
   function openModal() {
     modalFormContainer.style.display = "block";
+    modalFormContainer.setAttribute("aria-hidden", false);
+    modalFormContainer.setAttribute("aria-modal", true);
+    main.setAttribute("aria-hidden", true);
+    header.setAttribute("aria-hidden", true);
+    body.classList.add("no-scroll");
   }
 
   // close modal form
   function closeModal() {
     modalFormContainer.style.display = "none";
+    modalFormContainer.setAttribute("aria-hidden", true);
+    modalFormContainer.setAttribute("aria-modal", false);
+    main.setAttribute("aria-hidden", false);
+    header.setAttribute("aria-hidden", false);
+    body.classList.remove("no-scroll");
   }
 
   const showDataError = (input, condition, error) => {
     if (condition) {
       input.parentElement.setAttribute("data-error", error);
+      input.setAttribute("aria-invalid", true);
     } else {
       input.parentElement.removeAttribute("data-error");
+      input.setAttribute("aria-invalid", false);
     }
   };
 

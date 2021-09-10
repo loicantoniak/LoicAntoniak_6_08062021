@@ -9,7 +9,7 @@
       content="FishEye, site web de photographes freelances"
     />
     <title>Fish Eye - Accueil</title>
-    <link rel="stylesheet" href="/src/css/style.css" />
+    <link rel="stylesheet" href="./public/css/prefixed/style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
@@ -18,67 +18,12 @@
   <body>
     <header role="banner">
       <a class="logo" href="./index.html">
-        <img src="/src/assets/Icons/fishEye_log.svg" alt="Fisheye Home page" aria-label="Fisheye Home page" aria-current="page" />
+        <img src="./public/assets/Icons/fishEye_log.svg" alt="Fisheye Home page" aria-current="page" />
       </a>
     </header>
 
     <main class="photographer_content" role="main">
       <header class="photographer_header"></header>
-
-      <div class="modal_form">
-        <div class="modal_form-content">
-            <img class="modal_form-close" src="/src/assets/Icons/close-form.svg" alt="close-form" />
-            <h1>
-              <span>Contactez-moi</span><br />
-              <span class="modal_form_photographer_name"></span>
-            </h1>
-          </header>
-          <div class="modal_form-body">
-            <form
-              name="contact"
-              action="photographer.html"
-              id="form-contact"
-              method="POST"
-              class="form-contact"
-              name="contact"
-            >
-              <!-- firstName -->
-              <div class="formData">
-                <label for="firstName">Prénom</label><br />
-                <input class="text-control" type="text" name="firstName" />
-              </div>
-              <!-- lastName -->
-              <div class="formData">
-                <label for="lastName">Nom</label><br />
-                <input class="text-control" type="text" name="lastName" />
-              </div>
-              <!-- email -->
-              <div class="formData">
-                <label for="email">E-mail</label><br />
-                <input class="text-control" type="email" name="email" />
-              </div>
-              <!-- text -->
-              <div class="formData">
-                <label for="message">Votre message</label><br />
-                <textarea
-                  name="message"
-                  id="message"
-                  rows="4"
-                  aria-labelledby="message"
-                  required
-                  minlength="10"
-                ></textarea>
-              </div>
-              <!-- submit -->
-              <input
-                class="btn btn-primary btn-submit"
-                type="submit"
-                value="Envoyer"
-              />
-            </form>
-          </div>
-        </div>
-      </div>
 
       <div class="dropdown">
         <label for="dropdown">Trier par</label>
@@ -97,20 +42,88 @@
       <ul class="photographer_mediaList"></ul>
       
       <aside></aside>
+    </main>
 
-      <div class="photographer_lightbox">
-        <div class="photographer_carousel">
-          <button class="photographer_carousel_btn photographer_carousel_btn--close">
-            <img src="/src/assets/Icons/close-carousel.svg" alt="close-carousel" /> 
-          </button>
-          
+    <div class="modal_form" role="dialog" aria-hidden="true" aria-describedby="contact modal">
+      <div class="modal_form-content">
+          <div>
+            <img class="modal_form-close" src="./public/assets/Icons/close-form.svg" alt="close-form" />
+          </div>
+          <h1>
+            <span>Contactez-moi</span><br />
+            <span class="modal_form_photographer_name"></span>
+          </h1>
+        </header>
+        <div class="modal_form-body">
+          <form
+            name="contact"
+            action="photographer.html"
+            id="form-contact"
+            method="POST"
+            class="form-contact"
+            name="contact"
+          >
+            <!-- firstName -->
+            <div class="formData">
+              <label id="firstName" for="firstName">Prénom</label><br />
+              <input id="firstName" class="text-control" type="text" name="firstName" required aria-required=true/>
+            </div>
+            <!-- lastName -->
+            <div class="formData">
+              <label id="lastName" for="lastName">Nom</label><br />
+              <input id="lastName" class="text-control" type="text" name="lastName" required aria-required=true/>
+            </div>
+            <!-- email -->
+            <div class="formData">
+              <label id="email" for="email">E-mail</label><br />
+              <input id="email"  class="text-control" type="email" name="email" required aria-required=true/>
+            </div>
+            <!-- text -->
+            <div class="formData">
+              <label id="message" for="message">Votre message</label><br />
+              <textarea
+                name="message"
+                id="message"
+                rows="4"
+                aria-labelledby="message"
+                required
+                aria-required=true
+                minlength="10"
+              ></textarea>
+            </div>
+            <!-- submit -->
+            <input
+              class="btn btn-primary btn-submit"
+              type="submit"
+              value="Envoyer"
+            />
+          </form>
         </div>
       </div>
-    </main>
+    </div>
+
+    <div class="photographer_lightbox" role="dialog" aria-describedby="modal carousel's medias">
+      <div class="photographer_carousel">
+        <button class="photographer_carousel_btn photographer_carousel_btn--close">
+          <img src="./public/assets/Icons/close-carousel.svg" alt="close-carousel" /> 
+        </button>
+
+          <button class="photographer_carousel_btn photographer_carousel_btn--previous">
+          <i class="fas fa-chevron-left" role="img"></i>
+        </button>
+
+        <div class="photographer_carousel-medias">
+
+        </div>
+        
+        <button class="photographer_carousel_btn photographer_carousel_btn--next">
+          <i class="fas fa-chevron-right" role="img"></i>
+        </button>
+      </div>
   </body>
 
   <!-- Script Javascript -->
-  <script type="module" src="./src/js/index.js"></script>
+  <script type="module" src="./public/js/index.js"></script>
 </html>
 
 

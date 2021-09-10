@@ -19,7 +19,7 @@ export class Photographer {
     let html = `<article class="profile__container">
       <a class="profile__identity" href="photographer.html?id=${this.id}">
         <div class="portrait">
-          <img src="/src/assets/medias/Photographers ID Photos/${this.portrait}" alt="Photographe affilié au site Fisheye : ${this.name}" />
+          <img src="./public/assets/medias/Photographers ID Photos/${this.portrait}" alt="Photographe affilié au site Fisheye : ${this.name}" />
       </div>
       <h2>${this.name}</h2>
     </a>
@@ -63,7 +63,7 @@ export class Photographer {
     </div>
     
     <div class="portrait portrait-responsive">
-      <img src="/src/assets/medias/Photographers ID Photos/${this.portrait}" alt="Photographe affilié au site Fisheye : ${this.name}" />
+      <img src="./public/assets/medias/Photographers ID Photos/${this.portrait}" alt="Photographe affilié au site Fisheye : ${this.name}" />
     </div>`;
 
     photographerHeaderContainer.insertAdjacentHTML("beforeend", html);

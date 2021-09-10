@@ -81,7 +81,7 @@ export class Image extends MediasFatory {
     image.classList = "photographer_mediaCard-media";
     image.setAttribute(
       "src",
-      `/src/assets/medias/${firstName(this.photographerName)}/${this.src}`
+      `./public/assets/medias/${firstName(this.photographerName)}/${this.src}`
     );
     image.setAttribute("alt", `${this.title}, closeup view`);
     image.setAttribute("data-id", `${this.id}`);
@@ -96,7 +96,7 @@ export class Video extends MediasFatory {
     video.classList = "photographer_mediaCard-media";
     video.setAttribute(
       "src",
-      `/src/assets/medias/${firstName(this.photographerName)}/${this.src}`
+      `./public/assets/medias/${firstName(this.photographerName)}/${this.src}`
     );
     video.setAttribute("alt", `${this.title}, closeup view`);
     video.setAttribute("data-id", `${this.id}`);
