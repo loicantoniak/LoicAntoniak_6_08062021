@@ -1,7 +1,7 @@
 import { mainPage } from "./index.js";
 import { photographerPage } from "./photographer.js";
 
-const url = "/data.json";
+const url = "../data.json";
 
 export const fetchData = async function () {
   try {
