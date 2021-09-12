@@ -33,5 +33,9 @@ form {
     margin-top: 0.5rem;
     padding: 16px 18px;
     font-size: 15px;
+    &:hover,  &:focus  {
+      color: $color-white;
+      background-color: $color-secondary;
+    }
   }
 }

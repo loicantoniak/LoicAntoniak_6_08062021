@@ -35,6 +35,11 @@
     position: absolute;
     top: 35px;
     right: 35px;
+    border-style: none;
+    background-color: transparent;
+    &:focus  {
+      border: 1px solid white;
+    }
   }
 }
 

@@ -22,6 +22,9 @@
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
+    &:hover, &:focus {
+      background-color: $color-tertiary;
+    }
   }
 
   .open {
@@ -56,6 +59,7 @@
   }
 
   .custom-options {
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;

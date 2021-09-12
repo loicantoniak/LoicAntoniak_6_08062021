@@ -19,15 +19,14 @@ export const sortMedia = (photographer, medias) => {
     ".photographer_mediaList"
   );
 
-
-
   customSelect.addEventListener("click", function () {
     const selectedOption = customOptions.querySelector(".selected");
     const value = selectedOption.dataset.value;
     this.classList.toggle("open");
     if (!this.classList.contains("open")) {
+      customSelect.setAttribute("aria-expanded", false);
       customOptions.style.display = "none";
-      customSelect.setAttribute("aria-expanded", false)
+
       switch (value) {
         case "popularity":
           deleteMediaListDomElements(phographerMediaListContainer);
@@ -45,8 +44,8 @@ export const sortMedia = (photographer, medias) => {
           break;
       }
     } else {
+      customSelect.setAttribute("aria-expanded", true);
       customOptions.style.display = "block";
-      customSelect.setAttribute("aria-expanded", true)
     }
   });
 };
@@ -73,13 +72,14 @@ const setDropdownDomElement = () => {
     });
   }
 
-  customSelect.setAttribute("aria-haspopup", true)
-  customSelect.setAttribute("aria-expanded", false)
+  customSelect.setAttribute("aria-haspopup", true);
+  customSelect.setAttribute("aria-expanded", false);
 
   window.addEventListener("click", function (e) {
     const select = document.querySelector(".custom-select");
     if (!select.contains(e.target)) {
       select.classList.remove("open");
+      customSelect.setAttribute("aria-expanded", false);
     }
   });
 };

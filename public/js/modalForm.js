@@ -1,3 +1,5 @@
+import { keepFocus } from "./functions.js";
+
 export default function modalForm(data) {
   /**
    * DOM Elements
@@ -8,8 +10,7 @@ export default function modalForm(data) {
   const submitBtn = document.querySelector(".btn-submit");
   const form = document.querySelector("#form-contact");
   const formData = document.querySelectorAll(".formData");
-  const inputs = form.getElementsByTagName("input");
-  const textarea = form.querySelector("textarea");
+  const inputs = form.getElementsByClassName("field");
   const photographerName = document.querySelector(
     ".modal_form_photographer_name"
   );
@@ -19,6 +20,9 @@ export default function modalForm(data) {
 
   btnContact.addEventListener("click", openModal);
   btnClose.addEventListener("click", closeModal);
+
+  const elements = [btnClose, ...inputs, submitBtn];
+
   photographerName.innerHTML = data.name;
 
   document.addEventListener("keydown", function (e) {
@@ -59,6 +63,8 @@ export default function modalForm(data) {
     main.setAttribute("aria-hidden", true);
     header.setAttribute("aria-hidden", true);
     body.classList.add("no-scroll");
+    btnClose.focus();
+    keepFocus(modalFormContainer, elements)
   }
 
   // close modal form
@@ -122,32 +128,22 @@ export default function modalForm(data) {
     }
   };
 
-  const textareaValidation = () => {
-    checkInputIsEmpty(textarea, error.message.empty);
-    const notEmpty = textarea.value !== "";
-    notEmpty && validInput(textarea, error.message.notValide);
-  };
-
   /**
    * Check if form is valid before submitting
    */
   submitBtn.addEventListener("click", function (e) {
     e.preventDefault();
     inputValidation();
-    textareaValidation();
     const allFormData = [...formData];
     const dataError = (formdata) => formdata.getAttribute("data-error");
-    // True if an error exist
     const checkIfOneErrorExist = allFormData.some(dataError);
 
     if (!checkIfOneErrorExist) {
       modalFormContainer.style.display = "none";
 
       for (let input of inputs) {
-        if (input.type !== "submit") console.log(input.value);
+        console.log(input.value);
       }
-      console.log(textarea.value);
-
       form.reset();
     }
   });

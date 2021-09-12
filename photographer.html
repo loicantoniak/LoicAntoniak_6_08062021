@@ -9,7 +9,7 @@
       content="FishEye, site web de photographes freelances"
     />
     <title>Fish Eye - Accueil</title>
-    <link rel="stylesheet" href="./public/css/prefixed/style.css" />
+    <link rel="stylesheet" href="./public/css/style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
@@ -46,9 +46,9 @@
 
     <div class="modal_form" role="dialog" aria-hidden="true" aria-describedby="contact modal">
       <div class="modal_form-content">
-          <div>
-            <img class="modal_form-close" src="./public/assets/Icons/close-form.svg" alt="close-form" />
-          </div>
+          <button class="modal_form-close">
+            <img  src="./public/assets/Icons/close-form.svg" alt="close-form" />
+          </button>
           <h1>
             <span>Contactez-moi</span><br />
             <span class="modal_form_photographer_name"></span>
@@ -66,22 +66,23 @@
             <!-- firstName -->
             <div class="formData">
               <label id="firstName" for="firstName">Prénom</label><br />
-              <input id="firstName" class="text-control" type="text" name="firstName" required aria-required=true/>
+              <input id="firstName" class="text-control field" type="text" name="firstName"  required aria-required=true/>
             </div>
             <!-- lastName -->
             <div class="formData">
               <label id="lastName" for="lastName">Nom</label><br />
-              <input id="lastName" class="text-control" type="text" name="lastName" required aria-required=true/>
+              <input id="lastName" class="text-control field" type="text" name="lastName" required aria-required=true/>
             </div>
             <!-- email -->
             <div class="formData">
               <label id="email" for="email">E-mail</label><br />
-              <input id="email"  class="text-control" type="email" name="email" required aria-required=true/>
+              <input id="email"  class="text-control field" type="email" name="email" required aria-required=true/>
             </div>
             <!-- text -->
             <div class="formData">
               <label id="message" for="message">Votre message</label><br />
               <textarea
+              class="field"
                 name="message"
                 id="message"
                 rows="4"
@@ -102,10 +103,10 @@
       </div>
     </div>
 
-    <div class="photographer_lightbox" role="dialog" aria-describedby="modal carousel's medias">
+    <div class="photographer_lightbox" aria-hidden="true" role="dialog" aria-describedby="modal carousel's medias">
       <div class="photographer_carousel">
         <button class="photographer_carousel_btn photographer_carousel_btn--close">
-          <img src="./public/assets/Icons/close-carousel.svg" alt="close-carousel" /> 
+          <img class="close_carousel-img"  src="./public/assets/Icons/close-carousel.svg"  alt="close-carousel" />
         </button>
 
           <button class="photographer_carousel_btn photographer_carousel_btn--previous">

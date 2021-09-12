@@ -1,6 +1,6 @@
 import { firstName } from "./functions.js";
 
-let currentSlide;
+let currentSlide = 0;
 let maxSlide;
 
 /**
@@ -16,7 +16,6 @@ const previousBtn = document.querySelector(
   ".photographer_carousel_btn--previous"
 );
 
-
 btnClose && btnClose.addEventListener("click", closeCarousel);
 nextBtn && nextBtn.addEventListener("click", nextSlide);
 previousBtn && previousBtn.addEventListener("click", previousSlide);
@@ -24,7 +23,7 @@ previousBtn && previousBtn.addEventListener("click", previousSlide);
 document.addEventListener("keydown", function (e) {
   const keyCode = e.keyCode;
 
-  if (lightbox.getAttribute("aria-hidden") === "false") {
+  if (lightbox && lightbox.getAttribute("aria-hidden") === "false") {
     keyCode === 37 && previousSlide();
     keyCode === 39 && nextSlide();
     keyCode === 27 && closeCarousel();
@@ -35,17 +34,28 @@ export const carouselMedia = (photographer, medias) => {
   const mediaCards = document.querySelectorAll(".photographer_mediaCard-media");
 
   mediaCards.forEach((card) => {
-    card.addEventListener("click", function (e) {
-      lightbox.style.display = "block";
-      currentSlide = getCurrentIndex(medias, e);
-      getCarouselMediaDomElements(photographer, medias);
-      lightbox.setAttribute("aria-hidden", false);
-      main.setAttribute("aria-hidden", true);
-      header.setAttribute("aria-hidden", true);
-      body.classList.add("no-scroll");
+    card.addEventListener("keydown", (e) => {
+      if (e.keyCode === 13) {
+        openCarouselMedia(e, photographer, medias);
+      }
     });
+    card.addEventListener("click", (e) =>
+      openCarouselMedia(e, photographer, medias)
+    );
   });
 };
+
+function openCarouselMedia(e, photographer, medias) {
+  lightbox.style.display = "block";
+  currentSlide = getCurrentIndex(medias, e);
+  getCarouselMediaDomElements(photographer, medias);
+  lightbox.setAttribute("aria-hidden", false);
+  lightbox.setAttribute("aria-modal", true);
+  main.setAttribute("aria-hidden", true);
+  main.style.display = "none";
+  header.setAttribute("aria-hidden", true);
+  body.classList.add("no-scroll");
+}
 
 const getCarouselMediaDomElements = (photographer, medias) => {
   const carouselMedia = document.querySelector(".photographer_carousel-medias");
@@ -58,9 +68,9 @@ const getCarouselMediaDomElements = (photographer, medias) => {
       i + 1
     }"><div class="slide_mediaContainer">`;
     if (media?.image) {
-      html += `<img src="./public/assets/medias/${firstName(photographer.name)}/${
-        media.image
-      }" alt="${media.title}" data-id=${media.id}>`;
+      html += `<img src="./public/assets/medias/${firstName(
+        photographer.name
+      )}/${media.image}" alt="${media.title}" data-id=${media.id}>`;
     } else if (media?.video) {
       html += `<video src="./public/assets/medias//${firstName(
         photographer.name
@@ -77,6 +87,7 @@ const getCarouselMediaDomElements = (photographer, medias) => {
   carouselMedia.insertAdjacentHTML("beforeend", html);
   maxSlide = medias.length - 1;
   addTranslation();
+  disabledCarouselButton();
 };
 
 const addTranslation = () => {
@@ -97,21 +108,31 @@ const deleteMediaListCarousel = (element) => {
   }
 };
 
+const disabledCarouselButton = () => {
+  currentSlide === maxSlide
+    ? nextBtn.classList.add("btn-disabled")
+    : nextBtn.classList.remove("btn-disabled");
+
+  currentSlide === 0
+    ? previousBtn.classList.add("btn-disabled")
+    : previousBtn.classList.remove("btn-disabled");
+};
+
 function closeCarousel() {
   lightbox.style.display = "none";
+  main.style.display = "block";
+  lightbox.setAttribute("aria-hidden", true);
+  lightbox.setAttribute("aria-modal", false);
   main.setAttribute("aria-hidden", false);
   header.setAttribute("aria-hidden", false);
   body.classList.remove("no-scroll");
-  lightbox.setAttribute("aria-hidden", true);
-  lightbox.setAttribute("aria-hidden", false);
+  nextBtn.classList.remove("btn-disabled");
+  previousBtn.classList.remove("btn-disabled");
 }
 
 function nextSlide() {
-  if (currentSlide === maxSlide) {
-    currentSlide = maxSlide;
-  } else {
-    currentSlide++;
-  }
+  currentSlide === maxSlide ? (currentSlide = maxSlide) : currentSlide++;
+  disabledCarouselButton();
 
   const slide = document.querySelectorAll(".slide");
   slide.forEach((s, i) => {
@@ -120,12 +141,9 @@ function nextSlide() {
 }
 
 function previousSlide() {
-  if (currentSlide === 0) {
-    currentSlide = 0;
-  } else {
-    currentSlide--;
-  }
+  currentSlide === 0 ? (currentSlide = 0) : currentSlide--;
 
+  disabledCarouselButton();
   const slide = document.querySelectorAll(".slide");
   slide.forEach((s, i) => {
     s.style.transform = `translateX(${100 * (i - currentSlide)}%)`;

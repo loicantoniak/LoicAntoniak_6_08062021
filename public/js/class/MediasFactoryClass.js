@@ -86,6 +86,7 @@ export class Image extends MediasFatory {
     image.setAttribute("alt", `${this.title}, closeup view`);
     image.setAttribute("data-id", `${this.id}`);
     image.setAttribute("role", "button");
+    image.setAttribute("tabindex", 0);
     this.setMediaListDomElements(image);
   }
 }
@@ -101,6 +102,7 @@ export class Video extends MediasFatory {
     video.setAttribute("alt", `${this.title}, closeup view`);
     video.setAttribute("data-id", `${this.id}`);
     video.setAttribute("role", "button");
+    video.setAttribute("tabindex", 0);
     this.setMediaListDomElements(video);
   }
 }

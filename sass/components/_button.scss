@@ -12,7 +12,7 @@
     &:hover,
     &:focus {
       color: $color-dark-black;
-      background-color: $color-secondary;
+      background-color: $color-tertiary;
     }
   }
 
@@ -26,11 +26,18 @@
     &:hover,
     &:focus {
       color: $color-white;
-      background-color: $color-primary;
+      background-color: $color-tertiary;
     }
     &--active {
       color: $color-white;
       background-color: $color-primary;
+    }
+  }
+
+  &-disabled {
+    cursor: not-allowed !important;
+    i {
+      color: lightgray !important;
     }
   }
 }
