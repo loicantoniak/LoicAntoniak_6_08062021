@@ -40,4 +40,19 @@
       color: lightgray !important;
     }
   }
+
+  &-sticky {
+    @include font-body-large;
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 0.7rem;
+    transform: translate(-50%, 0);
+    padding: 0.5rem 1rem;
+    border-radius: $border-radius;
+    background-color: $color-tertiary;
+    a {
+      color: black;
+    }
+  }
 }
