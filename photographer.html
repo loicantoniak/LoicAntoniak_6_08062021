@@ -65,24 +65,25 @@
           >
             <!-- firstName -->
             <div class="formData">
-              <label id="firstName" for="firstName">Prénom</label><br />
-              <input class="text-control field" type="text" name="firstName"  required aria-required=true/>
+              <label for="firstName">Prénom</label><br />
+              <input class="text-control field" id="firstName"  type="text" name="firstName"  required aria-required=true/>
             </div>
             <!-- lastName -->
             <div class="formData">
-              <label id="lastName" for="lastName">Nom</label><br />
-              <input class="text-control field" type="text" name="lastName" required aria-required=true/>
+              <label for="lastName">Nom</label><br />
+              <input id="lastName" class="text-control field" type="text" name="lastName" required aria-required=true/>
             </div>
             <!-- email -->
             <div class="formData">
-              <label id="email" for="email">E-mail</label><br />
-              <input class="text-control field" type="email" name="email" required aria-required=true/>
+              <label for="email">E-mail</label><br />
+              <input id="email" class="text-control field" type="email" name="email" required aria-required=true/>
             </div>
             <!-- text -->
             <div class="formData">
-              <label id="message" for="message">Votre message</label><br />
+              <label for="message">Votre message</label><br />
               <textarea
-              class="field"
+                class="field"
+                id="message"
                 name="message"
                 rows="4"
                 aria-labelledby="message"
