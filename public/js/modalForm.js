@@ -64,7 +64,7 @@ export default function modalForm(data) {
     header.setAttribute("aria-hidden", true);
     body.classList.add("no-scroll");
     btnClose.focus();
-    keepFocus(modalFormContainer, elements)
+    keepFocus(modalFormContainer, elements);
   }
 
   // close modal form
@@ -104,11 +104,12 @@ export default function modalForm(data) {
     // Test Input
     let regExpInput;
     const type = input.type;
+    const name = input.name;
     const id = input.id;
 
     if (type === "email") regExpInput = emailRegExp;
     if (type === "text") regExpInput = textRegExp;
-    if (id === "message") regExpInput = textRegExp;
+    if (name === "message") regExpInput = textRegExp;
 
     const testInput = regExpInput.test(input.value);
 
@@ -119,12 +120,8 @@ export default function modalForm(data) {
     for (let i = 0; i < inputs.length; i++) {
       const name = inputs[i].name;
       const notEmpty = inputs[i].value !== "";
-
-      if (inputs[i].type === "submit") return;
-      else {
-        checkInputIsEmpty(inputs[i], error[name].empty);
-        notEmpty && validInput(inputs[i], error[name].notValide);
-      }
+      checkInputIsEmpty(inputs[i], error[name].empty);
+      notEmpty && validInput(inputs[i], error[name].notValide);
     }
   };
 

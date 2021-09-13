@@ -54,7 +54,6 @@
   }
   &tagline {
     @include font-body;
-    color: $color-dark-grey3;
     @include breakpoint(tablet) {
       @include font-body-large;
       font-weight: 400;

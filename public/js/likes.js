@@ -8,7 +8,7 @@ export const likesCounterDomElements = (photographer, medias) => {
 
   let html = `<div class="counter-container">
     <p class="counter">${counter}</p> 
-    <i class="far fa-heart fas" role="img"></i>
+    <span class="far fa-heart fas" role="img"></span>
   </div>
   <p>${photographer.price}€ / jour</p>`;
   aside.insertAdjacentHTML("afterbegin", html);

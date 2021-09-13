@@ -60,7 +60,7 @@ export class MediasFatory {
         <h3>${this.title}</h3>
         <div class="photographer_mediaCard-like">
           <p>${this.likes}</p>
-          <i class="far fa-heart"></i>
+          <span class="far fa-heart"></span>
         </div>
       </figcaption>
     </figure>

@@ -31,8 +31,6 @@
 
   &price {
     @include font-body-extra-small;
-    font-size: 9px;
-    line-height: 11, 72px;
     color: $color-dark-grey3;
   }
 
