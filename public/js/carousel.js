@@ -70,11 +70,11 @@ const getCarouselMediaDomElements = (photographer, medias) => {
     if (media?.image) {
       html += `<img src="./public/assets/medias/${firstName(
         photographer.name
-      )}/${media.image}" alt="${media.title}" data-id=${media.id}>`;
+      )}/${media.image}" alt="${media.description}" data-id=${media.id}>`;
     } else if (media?.video) {
       html += `<video src="./public/assets/medias//${firstName(
         photographer.name
-      )}/${media.video}" alt="${media.title}" data-id=${
+      )}/${media.video}" alt="${media.description}" data-id=${
         media.id
       } controls></video>`;
     } else {
