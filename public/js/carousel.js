@@ -94,7 +94,7 @@ const addTranslation = () => {
   const slide = document.querySelectorAll(".slide");
 
   slide.forEach((s, i) => {
-    s.style.transform = `translateX(${100 * (i - currentSlide)}%)`;
+    s.style.transform = `translate(${100 * (i - currentSlide)}%,-50%)`;
   });
 };
 
@@ -136,7 +136,7 @@ function nextSlide() {
 
   const slide = document.querySelectorAll(".slide");
   slide.forEach((s, i) => {
-    s.style.transform = `translateX(${100 * (i - currentSlide)}%)`;
+    s.style.transform = `translate(${100 * (i - currentSlide)}%, -50%)`;
   });
 }
 
@@ -146,6 +146,6 @@ function previousSlide() {
   disabledCarouselButton();
   const slide = document.querySelectorAll(".slide");
   slide.forEach((s, i) => {
-    s.style.transform = `translateX(${100 * (i - currentSlide)}%)`;
+    s.style.transform = `translate(${100 * (i - currentSlide)}%, -50%)`;
   });
 }

@@ -25,17 +25,36 @@ form {
     width: 100%;
     @include font-heading-3;
   }
+
+  input[type="text"],
+  input[type="email"] {
+    height: 7vh;
+  }
+
+  textarea {
+    height: 20vh;
+  }
   .text-control {
-    height: 50px;
+    @include breakpoint(tablet) {
+      height: 50px !important;
+    }
   }
 
   .btn-submit {
-    margin-top: 0.5rem;
-    padding: 16px 18px;
+    padding: 11px 23px;
     font-size: 15px;
-    &:hover,  &:focus  {
+    display: block;
+    margin: auto;
+    margin-top: 1rem;
+    &:hover,
+    &:focus {
       color: $color-white;
       background-color: $color-secondary;
+    }
+    @include breakpoint(tablet) {
+      padding: 16px 18px;
+      margin: 0;
+      margin-top: 1rem;
     }
   }
 }

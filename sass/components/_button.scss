@@ -43,16 +43,22 @@
 
   &-sticky {
     @include font-body-large;
+    font-size: 14px;
     display: none;
     position: fixed;
     left: 50%;
     top: 0.7rem;
     transform: translate(-50%, 0);
-    padding: 0.5rem 1rem;
+    padding: 0.5rem;
     border-radius: $border-radius;
     background-color: $color-tertiary;
     a {
       color: black;
+    }
+
+    @include breakpoint(desktop) {
+      font-size: $base-fontSize;
+      padding: 0.5rem 1rem;
     }
   }
 }

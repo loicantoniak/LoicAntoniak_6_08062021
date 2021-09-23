@@ -6,8 +6,8 @@
   box-shadow: 1px 4px 9px rgb(0 0 0 / 25%);
 
   &-responsive {
-    width: 7rem;
-    height: 7rem;
+    width: 6rem;
+    height: 6rem;
     @include breakpoint(tablet) {
       width: 13rem;
       height: 13rem;
